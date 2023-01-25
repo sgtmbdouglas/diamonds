@@ -1,11 +1,8 @@
-// using Letterss;
-
 namespace Form;
 
 public class Diamond
 {
-    // public Letters Leters { get; set; }
-    public char[] letra = new char[] {
+    public char[] alphabet = new char[] {
         'a',
         'b',
         'c',
@@ -37,10 +34,24 @@ public class Diamond
 
     public void Form()
     {
-        foreach (char letraa in letra)
-        {
-            Console.WriteLine("letra" + letraa);
-        }
+        Welcome();
+        inputValidate();
+        // olhar tabela ascii 2
+        // {
+        //     Console.WriteLine("letraaaaaa" + letra);
+        // }
+    }
+    
+    public int Welcome()
+    {
+        do
+            {
+                Console.WriteLine("insira uma letra apartir de c para ter um lindo diamante");
+                var inputUser = char.Parse(Console.ReadLine().ToLower());
+                var charConvert = Char.IsLetter(inputUser);
+                Console.WriteLine(charConvert);
+            }
+            while (true);
     }
 
 }
