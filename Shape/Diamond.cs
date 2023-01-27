@@ -1,4 +1,5 @@
 namespace Form;
+// using System;
 
 public class Diamond
 {
@@ -30,28 +31,40 @@ public class Diamond
         'y',
         'z',
         };
+    public char InputUser;
+    // public IEnumerable<char>
+    public bool IsChar = false;
 
 
     public void Form()
     {
-        Welcome();
-        inputValidate();
-        // olhar tabela ascii 2
-        // {
-        //     Console.WriteLine("letraaaaaa" + letra);
-        // }
+        WelcomeValid();
+        // FindLeter();
     }
     
-    public int Welcome()
+    public void WelcomeValid()
     {
-        do
+        Console.WriteLine("Insira uma letra apartir de c para ter um lindo diamante");
+        // var inputUser = Console.ReadLine().ToLower();
+
+        var input = Console.ReadLine().ToLower();
+        // short - circuit
+        while (input.Length != 1 || Char.IsDigit(Char.Parse(input)))
+        {
+            Console.WriteLine("Numeros ,simbolos ou mais de uma letra nao serao aceitos!!");
+        // Console.Write("Type again!\n");
+            input = Console.ReadLine()!;
+        }
+        InputUser = Char.Parse(input);
+        if(InputUser == 'a' || InputUser == 'b' || InputUser == 'c')
             {
-                Console.WriteLine("insira uma letra apartir de c para ter um lindo diamante");
-                var inputUser = char.Parse(Console.ReadLine().ToLower());
-                var charConvert = Char.IsLetter(inputUser);
-                Console.WriteLine(charConvert);
+                Console.WriteLine("Por favor, digite um 'Uma' letra a partir da letra c!!");
+                WelcomeValid();
             }
-            while (true);
+        //     while(Char.IsLetter(Char.Parse(inputUser)))
+    }
+    public void FindLeter()
+    {
     }
 
 }
