@@ -44,4 +44,23 @@ public class UnitTest1
             }
         }
     }
+
+    [Theory(DisplayName = "Deve Validar se o diamante inicia com A letra a e termina com a letra A")]
+    [InlineData('c', "a", 6)]
+    [InlineData('g', "a", 14)]
+
+    public void TestDiamondShape(char entry, string expectMessage, int expectLines)
+    {
+        using(var output = new StringWriter())
+        {
+                Console.SetOut(output);
+                var instanceDiamond = new Diamond();
+                instanceDiamond.InputUser = entry;
+                instanceDiamond.DiamondShape();
+                var response = output.ToString().Split('\n');
+                response[0].Should().Contain(expectMessage);
+                response.Length.Should().Be(expectLines);
+                response[^2].Should().Contain(expectMessage);
+        }
+    }
 }
