@@ -121,6 +121,7 @@ public class Diamond
         Console.WriteLine("Por favor, informe seu e-mail");
         string emailUser = Console.ReadLine();
         EmailUser = emailUser;
+        Console.WriteLine($"Um e-mail foi enviado para {emailUser}");
     }
 
 }

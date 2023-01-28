@@ -63,4 +63,24 @@ public class UnitTest1
                 response[^2].Should().Contain(expectMessage);
         }
     }
+
+    [Theory(DisplayName = "Deve Validar se o usuario fez um input diferente de s(SIM) ou n(NAO")]
+    [InlineData("d\nh\ns", "Digite s para 'SIM' e n para 'Nao'...")]
+    [InlineData("j\nm\nn", "Digite s para 'SIM' e n para 'Nao'...")]
+    public void TestSendEmailValidInput(string entry, string expectMessage)
+    {
+        using(var output = new StringWriter())
+        {
+            using( var input = new StringReader(entry))
+            {
+                Console.SetOut(output);
+                Console.SetIn(input);
+                var instanceDiamond = new Diamond();
+                instanceDiamond.SendEmail();
+                var response = output.ToString().Trim().Split('\n');
+                response[1].Should().Be(expectMessage);
+            }
+        }
+    }
+
 }
