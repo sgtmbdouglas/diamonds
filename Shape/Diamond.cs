@@ -66,9 +66,9 @@ public class Diamond
         {
             for(int a = 0; a < indexChar - i; a++ )
             {
-                Console.Write(" "); //rodar 2 veiz
+                Console.Write(" ");
             }
-            for(int b = 0; b < 2 * i + 1 ; b++ ) // min 1 vez
+            for(int b = 0; b < 2 * i + 1 ; b++ )
             {
                 if( b == 0 || b == 2 * i)
                 {
