@@ -3,7 +3,7 @@ namespace Form;
 
 public class Diamond
 {
-    public List<char> Alphabet = new(){
+    public List<char> Alphabet = new() {
         'a',
         'b',
         'c',
@@ -13,8 +13,8 @@ public class Diamond
         'g',
         'h',
         'i',
-        'j',  //10    elemento
-        'k',  //10    index
+        'j',
+        'k',
         'l',
         'm',
         'n',
@@ -23,8 +23,8 @@ public class Diamond
         'q',
         'r',
         's',
-        't',  // 20   elemento
-        'u',  //20    index
+        't',
+        'u',
         'v',
         'w',
         'x',
@@ -46,7 +46,7 @@ public class Diamond
         Console.WriteLine("Insira uma letra apartir de c para ter um lindo diamante");
         string input = Console.ReadLine().ToLower();
         // short - circuit
-        while (input.Length != 1 || Char.IsDigit(Char.Parse(input)))
+        while (input.Length != 1 || !Char.IsLetter(Char.Parse(input)))
         {
             Console.WriteLine("Numeros ,simbolos ou mais de uma letra nao serao aceitos!!");
             input = Console.ReadLine()!;
@@ -57,7 +57,6 @@ public class Diamond
                 Console.WriteLine("Por favor, digite um 'Uma' letra a partir da letra c!!");
                 WelcomeValid();
             }
-        //     while(Char.IsLetter(Char.Parse(inputUser)))
     }
     public void DiamondShape()
     {
@@ -125,5 +124,3 @@ public class Diamond
     }
 
 }
-
-// porque indexOf NAO Aceita []char?
