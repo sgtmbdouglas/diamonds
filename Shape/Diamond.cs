@@ -32,26 +32,23 @@ public class Diamond
         'z',
         };
     public char InputUser;
-    // public IEnumerable<char>
-    public bool IsChar = false;
+    public string? EmailUser;
 
     public void Form()
     {
         WelcomeValid();
-        FindLeter();
+        DiamondShape();
+        SendEmail();
     }
     
     public void WelcomeValid()
     {
         Console.WriteLine("Insira uma letra apartir de c para ter um lindo diamante");
-        // var inputUser = Console.ReadLine().ToLower();
-
         string input = Console.ReadLine().ToLower();
         // short - circuit
         while (input.Length != 1 || Char.IsDigit(Char.Parse(input)))
         {
             Console.WriteLine("Numeros ,simbolos ou mais de uma letra nao serao aceitos!!");
-        // Console.Write("Type again!\n");
             input = Console.ReadLine()!;
         }
         InputUser = Char.Parse(input);
@@ -62,19 +59,16 @@ public class Diamond
             }
         //     while(Char.IsLetter(Char.Parse(inputUser)))
     }
-    public void FindLeter()
+    public void DiamondShape()
     {
         int indexChar = Alphabet.IndexOf(InputUser);
-        // Console.WriteLine(indexChar);
         for (int i = 0; i <= indexChar; i++)
         {
             for(int a = 0; a < indexChar - i; a++ )
             {
-                Console.Write(" ");
-                // Console.Write("segundo for === saiu = ");
+                Console.Write(" "); //rodar 2 veiz
             }
-            // Console.WriteLine(i);
-            for(int b = 0; b < 2 * i + 1 ; b++ )
+            for(int b = 0; b < 2 * i + 1 ; b++ ) // min 1 vez
             {
                 if( b == 0 || b == 2 * i)
                 {
@@ -84,10 +78,8 @@ public class Diamond
                 {
                     Console.Write(" ");
                 }
-                // Console.Write(Alphabet[i]);
-                // Console.WriteLine("\n");
             }
-            for(int a = 0; a < indexChar - i; a++ )
+            for(int c = 0; c < indexChar - i; c++ )
             {
                 Console.Write(" ");  
             }
@@ -98,9 +90,7 @@ public class Diamond
             for(int a = 0; a < indexChar - i; a++ )
             {
                 Console.Write(" ");
-                // Console.Write("segundo for === saiu = ");
             }
-            // Console.WriteLine(i);
             for(int b = 0; b < 2 * i + 1 ; b++ )
             {
                 if( b == 0 || b == 2 * i)
@@ -111,8 +101,6 @@ public class Diamond
                 {
                     Console.Write(" ");
                 }
-                // Console.Write(Alphabet[i]);
-                // Console.WriteLine("\n");
             }
             for(int a = 0; a < indexChar - i; a++ )
             {
@@ -121,8 +109,21 @@ public class Diamond
             Console.Write('\n');
         }
     }
+    public void SendEmail()
+    {
+        Console.WriteLine("Gostaria de receber seu diamante por e-mail?");
+        Console.WriteLine("Digite s para 'SIM' e n para 'Nao'...");
+        string input = Console.ReadLine().ToLower();
+        while (input != "s" && input != "n")
+        {
+            Console.WriteLine("Digite s para 'SIM' e n para 'Nao'...");
+            input = Console.ReadLine().ToLower();
+        }
+        Console.WriteLine("Por favor, informe seu e-mail");
+        string emailUser = Console.ReadLine();
+        EmailUser = emailUser;
+    }
 
 }
 
 // porque indexOf NAO Aceita []char?
-// qual a diferenca entre writeLine e write
