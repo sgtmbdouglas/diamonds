@@ -4,32 +4,32 @@ namespace Form;
 public class Diamond
 {
     public List<char> Alphabet = new() {
-        'a',
-        'b',
-        'c',
-        'd',
-        'e',
-        'f', 
-        'g',
-        'h',
-        'i',
-        'j',
-        'k',
-        'l',
-        'm',
-        'n',
-        'o',
-        'p',
-        'q',
-        'r',
-        's',
-        't',
-        'u',
-        'v',
-        'w',
-        'x',
-        'y',
-        'z',
+        'A',
+        'B',
+        'C',
+        'D',
+        'E',
+        'F', 
+        'G',
+        'H',
+        'I',
+        'J',
+        'K',
+        'L',
+        'M',
+        'N',
+        'O',
+        'P',
+        'Q',
+        'R',
+        'S',
+        'T',
+        'U',
+        'V',
+        'W',
+        'X',
+        'Y',
+        'Z',
         };
     public char InputUser;
     public string? EmailUser;
@@ -43,7 +43,7 @@ public class Diamond
     
     public void WelcomeValid()
     {
-        Console.WriteLine("Insira uma letra apartir de c para ter um lindo diamante");
+        Console.WriteLine("Insira 'uma' letra apartir de c para ter um lindo diamante");
         string input = Console.ReadLine().ToLower();
         // short - circuit
         while (input.Length != 1 || !Char.IsLetter(Char.Parse(input)))
@@ -51,10 +51,10 @@ public class Diamond
             Console.WriteLine("Numeros ,simbolos ou mais de uma letra nao serao aceitos!!");
             input = Console.ReadLine()!;
         }
-        InputUser = Char.Parse(input);
-        if(InputUser == 'a' || InputUser == 'b')
+        InputUser = Char.Parse(input.ToUpper());
+        if(InputUser == 'A' || InputUser == 'B')
             {
-                Console.WriteLine("Por favor, digite um 'Uma' letra a partir da letra c!!");
+                Console.WriteLine("Por favor, digite uma letra a partir da letra c!!");
                 WelcomeValid();
             }
     }
