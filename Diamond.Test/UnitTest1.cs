@@ -28,7 +28,7 @@ public class UnitTest1
 
     [Theory(DisplayName = "Deve Validar a mensagem retornada em caso de erro no input do usuario")]
     [InlineData("3\nj", "Numeros ,simbolos ou mais de uma letra nao serao aceitos!!")]
-    [InlineData("b\nc", "Por favor, digite um 'Uma' letra a partir da letra c!!")]
+    [InlineData("b\nc", "Por favor, digite uma letra a partir da letra c!!")]
     public void TestMessage(string entry, string expectMessage)
     {
         using(var output = new StringWriter())
@@ -46,8 +46,8 @@ public class UnitTest1
     }
 
     [Theory(DisplayName = "Deve Validar se o diamante inicia com A letra a e termina com a letra A")]
-    [InlineData('c', "a", 6)]
-    [InlineData('g', "a", 14)]
+    [InlineData('C', "A", 6)]
+    [InlineData('G', "A", 14)]
 
     public void TestDiamondShape(char entry, string expectMessage, int expectLines)
     {
@@ -82,5 +82,5 @@ public class UnitTest1
             }
         }
     }
-    
+
 }
