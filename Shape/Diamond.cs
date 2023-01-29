@@ -123,5 +123,4 @@ public class Diamond
         EmailUser = emailUser;
         Console.WriteLine($"Um e-mail foi enviado para {emailUser}");
     }
-
 }

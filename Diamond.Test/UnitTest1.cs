@@ -83,4 +83,24 @@ public class UnitTest1
         }
     }
 
+
+    [Theory(DisplayName = "Deve Validar se o e-mail foi enviado")]
+    [InlineData("s", "Rafael@gmail.com", "Um e-mail foi enviado para Rafael@gmail.com")]
+    [InlineData("s", "Richarlisson@hotmail.com", "Um e-mail foi enviado para Richarlisson@hotmail.com")]
+    public void TestSendEmail(string choice, string email, string expectMessage)
+    {
+        using(var output = new StringWriter())
+        {
+            var entry = choice + "\n" + email;
+            using( var input = new StringReader(entry))
+            {
+                Console.SetOut(output);
+                Console.SetIn(input);
+                var instanceDiamond = new Diamond();
+                instanceDiamond.SendEmail();
+                var response = output.ToString().Trim().Split('\n');
+                response[^1].Should().Be(expectMessage);
+            }
+        }
+    }
 }
